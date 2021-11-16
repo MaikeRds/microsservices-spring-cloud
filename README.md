@@ -60,6 +60,10 @@ Porta padrão: 8761
 
 Acessar o dashboard no navegador: http://localhost:8761
 
+Em caso de erros ao start.
+
+Window > Prefecences > Java > Installed JREs > Add (JDK 11)
+
 ### 2.3 Configurar clientes Eureka
 
 Eliminar o Ribbon de hr-payroll:
