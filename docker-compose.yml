@@ -1,0 +1,53 @@
+version: '3'
+
+services:
+  hr-worker-pg12:
+    image: postgres:12
+    container_name: hr-worker-pg12
+    restart: always
+    tty: true
+    ports:
+      - "5432:5432"
+    volumes:
+      - worker-dbdata:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234567
+      POSTGRES_DB: db_hr_worker
+    networks:
+      - hr-net
+  hr-user-pg12:
+    image: postgres:12
+    container_name: hr-user-pg12
+    restart: always
+    tty: true
+    ports:
+      - "5433:5432"
+    volumes:
+      - user-dbdata:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234567
+      POSTGRES_DB: db_hr_user
+    networks:
+      - hr-net
+  hr-config-server:
+    build: ./hr-config-server
+    container_name: hr-config-server
+    ports:
+      - "8888:8888"
+    environment:
+      GITHUB_USER: MaikeRds
+      GITHUB_PASS: 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
+    networks:
+      - hr-net
+
+volumes:
+  worker-dbdata:
+    external: false
+  user-dbdata:
+    external: false
+
+networks:
+  hr-net:
+    driver: bridge
