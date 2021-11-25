@@ -62,6 +62,13 @@ services:
       SPRING_PROFILES_ACTIVE: prod
     networks:
       - hr-net
+  hr-payroll:
+    build: ./hr-payroll
+    container_name: hr-payroll
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
+    networks:
+      - hr-net
 
 volumes:
   worker-dbdata:
