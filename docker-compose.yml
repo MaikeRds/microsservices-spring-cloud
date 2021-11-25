@@ -41,6 +41,13 @@ services:
       GITHUB_PASS: ${GITHUB_PASS}
     networks:
       - hr-net
+  hr-eureka-server:
+    build: ./hr-eureka-server
+    container_name: hr-eureka-server
+    ports:
+      - "8761:8761"
+    networks:
+      - hr-net
 
 volumes:
   worker-dbdata:
