@@ -48,6 +48,11 @@ services:
       - "8761:8761"
     networks:
       - hr-net
+  hr-worker:
+    build: ./hr-worker
+    container_name: hr-worker
+    networks:
+      - hr-net
 
 volumes:
   worker-dbdata:
