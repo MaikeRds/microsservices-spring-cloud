@@ -69,6 +69,14 @@ services:
       SPRING_PROFILES_ACTIVE: prod
     networks:
       - hr-net
+  hr-oauth:
+    build: ./hr-oauth
+    container_name: hr-oauth
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
+    networks:
+      - hr-net
+
 
 volumes:
   worker-dbdata:
