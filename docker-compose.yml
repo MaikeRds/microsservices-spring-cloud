@@ -51,6 +51,15 @@ services:
   hr-worker:
     build: ./hr-worker
     container_name: hr-worker
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
+    networks:
+      - hr-net
+  hr-user:
+    build: ./hr-user
+    container_name: hr-user
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
     networks:
       - hr-net
 
