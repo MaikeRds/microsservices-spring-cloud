@@ -37,8 +37,8 @@ services:
     ports:
       - "8888:8888"
     environment:
-      GITHUB_USER: MaikeRds
-      GITHUB_PASS: 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
+      GITHUB_USER: ${GITHUB_USER}
+      GITHUB_PASS: ${GITHUB_PASS}
     networks:
       - hr-net
 
